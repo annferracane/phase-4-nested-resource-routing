@@ -3,12 +3,14 @@ class ReviewsController < ApplicationController
 
   def index
     if params[:dog_house_id]
-      reviews = DogHouse.find(params[:dog_house_id]).reviews
+      
     else
       reviews = Review.all
     end
   
-    render json: reviews, include: :dog_house, status: :ok
+    
+    
+    render json: reviews, include: :dog_house
   end
 
   def show
